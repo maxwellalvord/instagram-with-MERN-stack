@@ -9,6 +9,7 @@ import morgan from "morgan"
 import path from "path"
 import { fileURLToPath } from "url"
 import authRoutes from "./routes/auth.js"
+import userRoutes from ".routes/users.js"
 import { register } from "./controllers/auth.js"
 
 
@@ -25,7 +26,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
 app.use(cors());
 // in real life we want to store this in a cloud storage system like s3, we will save it locally here below
-app.use("/assests", express.static(path.join(__dirname, "public/assets")));
+app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 // FILE STORAGE
 const storage = multer.diskStorage({
